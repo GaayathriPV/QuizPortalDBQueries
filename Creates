@@ -1,0 +1,58 @@
+CREATE TABLE public.user(campus_id char(9) NOT NULL UNIQUE,
+						first_name varchar(25),
+						last_name varchar(25),
+						nick_name varchar(40) NOT NULL UNIQUE,
+						constraint pk_user PRIMARY KEY(campus_id));
+
+CREATE TABLE subject(subject_code char(8) NOT NULL UNIQUE,
+					subject_name varchar(25) NOT NULL,
+					constraint pk_subject PRIMARY KEY(subject_code));
+
+CREATE TABLE enrolls(campus_id char(9) NOT NULL,
+					subject_code char(8) NOT NULL,
+					section_name char(3) NOT NULL,
+					FOREIGN KEY (campus_id) REFERENCES public.user(campus_id),
+                    FOREIGN KEY (subject_code) REFERENCES subject(subject_code));
+					
+CREATE TABLE professor(emp_id char(9) NOT NULL UNIQUE,
+					  prof_name varchar(50) NOT NULL,
+					  constraint pk_professor PRIMARY KEY(emp_id));
+
+CREATE TABLE teaches(emp_id char(9) NOT NULL,
+					subject_code char(8) NOT NULL,
+					section_name char(3) NOT NULL,
+					FOREIGN KEY (emp_id) REFERENCES professor(emp_id),
+					FOREIGN KEY (subject_code) REFERENCES subject(subject_code));
+					
+CREATE TABLE conducts(emp_id char(9) NOT NULL,
+					 quiz_id char(4) NOT NULL,
+					 FOREIGN KEY (emp_id) REFERENCES professor(emp_id),
+					 FOREIGN KEY (quiz_id) REFERENCES quiz(quiz_id));
+					
+CREATE TABLE quiz(quiz_id char(4) NOT NULL UNIQUE,
+				 quiz_name varchar(25),
+				 constraint pk_quiz PRIMARY KEY(quiz_id));
+				 
+CREATE TABLE questionnaire(quiz_id char(4) NOT NULL,
+						  question_no int NOT NULL,
+						  question varchar(100),
+						  total_marks int,
+						  constraint pk_questionnaire PRIMARY KEY(quiz_id, question_no),
+						  FOREIGN KEY (quiz_id) REFERENCES quiz(quiz_id));
+						  
+CREATE TABLE response(campus_id char(9) NOT NULL,
+					 quiz_id char(4) NOT NULL,
+					 question_no int NOT NULL,
+					 answer varchar(500),
+					 marks_obtained float,
+					 FOREIGN KEY (campus_id) REFERENCES public.user(campus_id),
+					 FOREIGN KEY (quiz_id, question_no) REFERENCES questionnaire(quiz_id, question_no));
+					 
+CREATE TABLE performance(campus_id char(9) NOT NULL,
+						subject_code char(8) NOT NULL,
+						hw_marks float,
+						assignment_marks float,
+						mid_marks float,
+						project_marks float,
+						FOREIGN KEY (campus_id) REFERENCES public.user(campus_id),
+						FOREIGN KEY (subject_code) REFERENCES subject(subject_code));

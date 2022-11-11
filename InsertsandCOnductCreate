@@ -1,0 +1,113 @@
+insert into public.user ("nick_name", "campus_id", "first_name" , "last_name") 
+values('Cary', 'icarver1', 'Iona', 'Carver'),
+	  ('Bee', 'brussell8', 'Beck', 'Russell');
+
+insert into subject ("subject_code", "subject_name") 
+values ('CSC 6710','Database Systems'),
+('CSC 6556', 'Cryptogaphy'),
+('CSC 4210', 'Operating Systems'),
+('CSC 7821', 'Adv BioInformatics'),
+('CSC 3210', 'Comp Organization'),
+('CSC 6780', 'Fundamentals of DS'),
+('CSC 1301', 'Programming Lang 1'),
+('CSC 6390', 'Data Structures');
+
+insert into enrolls ("campus_id", "subject_code", "section_name")
+values('icarver1', 'CSC 3210', '002'),
+	  ('icarver1', 'CSC 1301', '001'),
+	  ('brussell8', 'CSC 1301', '002');
+	  
+insert into professor ("emp_id", "prof_name")
+values('pkliment1','Paxton Klimentov'),
+	  ('gmerrett8', 'Gregory Merrett'),
+	  ('vtrew7','Viva Trew');
+
+insert into teaches("emp_id", "subject_code", "section_name")
+values('pkliment1', 'CSC 3210', '002'),
+	   ('gmerrett8', 'CSC 1301', '001'),
+	   ('vtrew7','CSC 1301', '002');
+	   
+insert into quiz("quiz_id", "quiz_name")
+values('2686', 'MathQuiz'),
+('7662', 'DSQuiz1'),
+('3291', 'OSQuiz5'),
+('8797', 'COMids'),
+('1404', 'PL1Mids'),
+('7629', 'DBSAssign'),
+('8435', 'FDSQuiz2'),
+('6548', 'CYPProj'),
+('2886', 'ABIMids'),
+('8762', 'COProject'),
+('8709', 'CO_Hw'),
+('8711', 'COAssign'),
+('1459', 'PL1_Hw'),
+('1432', 'PL1Project'),
+('1457', 'PL1Assign'),
+('1498', 'PL1_Projectwork');
+
+insert into questionnaire("quiz_id", "question_no", "question", "total_marks")
+values('7662', 1, 'When is a binary search best applied?', 50),
+('7662', 2, 'What are binary trees?', 50),
+('3291', 1, 'What is a Pipe and when it is used?', 100),
+('2686', 1, 'Which number is equivalent to 3^(4)÷3^(2)', 100),
+('8797', 1, 'What are the different hazards?', 10),
+('8797', 2, 'What is a cache?', 20),
+('8797', 3, 'What are the three categories of computer architecture?', 45),
+('8797', 4, 'What are some of the components of a microprocessor?', 25),
+('8762', 1, 'Design a Turing machine using java, to implement basic operations of TM.', 100),
+('1404', 1, 'What is debugging?', 50),
+('1404', 2, 'Name different types of errors which can occur during the execution of a program?', 50),
+('8709', 1, 'Talk about ALU and CU.', 100),
+('8711', 1, 'What is pipelining?', 35),
+('8711', 2, 'What is a virtual memory on a computer?', 35),
+('8711', 3, 'What are the different types of fields that are part of instruction?', 30),
+('1459', 1, 'Briefly explain the various types of loops.', 100),
+('1432', 1, 'Graph-coloring register allocation', 100),
+('1457', 1, 'What are constants? Explain their types.', 20),
+('1457', 2, 'Please explain program documentation. Why is it important?', 50),
+('1457', 3, 'Please explain the operators.', 30),
+('1498', 1, 'Build a Working Chess Game.', 100);
+					 
+insert into conducts ("emp_id", "quiz_id")
+values('pkliment1', '8797'),
+	   ('pkliment1', '8709'),
+	   ('pkliment1', '8762'),
+	   ('pkliment1', '8711'),
+	  ('gmerrett8', '1404'),
+	  ('gmerrett8', '1457'),
+	  ('gmerrett8', '1432'),
+	  ('gmerrett8', '1459'),
+	  ('vtrew7','1404'),
+	  ('vtrew7', '1459'),
+	  ('vtrew7', '1457'),
+	  ('vtrew7', '1498');
+
+insert into response ("campus_id", "quiz_id", "question_no", "answer", "marks_obtained")
+values('icarver1', '8797', 1, 's;jfisydxb83eylnqgbxyewjashlzujhfgbmshgd', 10),
+	  ('icarver1', '8797', 2, 'auinyoiqyskujhnzlokraxncvliwaksudfjghvf', 20),
+	  ('icarver1', '8797', 3, 'dcshvfvacsdfgvhbgytgyhkmnbgf', 45),
+	  ('icarver1', '8797', 4, 'redcsfghjbhwgertcasidsnfgiobtfklntvsd', 20),
+	  ('icarver1', '8709', 1, 'sduehjdnowieksjdnfghvbftcdgbkamxsckgischuedhutvgcsbfgdm', 91),
+	  ('icarver1', '8762', 1, 'wscfghenuckfjsdnvckwurfyhuejchnack,sfhbbgvsmcfhdbhgd', 97.5),
+	  ('icarver1', '8711', 1, 'scdfjhsasdfbgv', 20),
+	  ('icarver1', '8711', 2, 'fygusdhjgwefyhjddvdfssad', 35),
+	  ('icarver1', '8711', 3, 'gcfujna,jchvfhdm', 28),
+	  ('icarver1', '1404', 1, 'rfdhgilmjcnsdf', 32),
+	  ('icarver1', '1404', 2, 'fruhsdkjuwfioedjhngkyu', 41),
+	  ('icarver1', '1457', 1 , 'grehkdfnwdksfhgvke4yrqcawuksy', 18),
+	  ('icarver1', '1457', 2, 'fgxshdjn', 36),
+	  ('icarver1', '1457', 3, 'rfuisdjkxh', 20),
+	  ('icarver1', '1432', 1, 'eghfiukjxfiuwexhn,wfesdkx', 67),
+	  ('icarver1', '1459', 1, 'gyekudfchjnetidukvgservyu4iry5ieskrhd', 82),
+	  ('brussell8', '1404', 1, 'yruhdsjdgcw3qigukgedhvfchweuqkawjoi5l', 42.5),
+	  ('brussell8', '1404', 2, 'yuerhdws,ales,jkfchgnukerjhdnfirks', 49.5),
+	  ('brussell8', '1457', 1, 'ifukdjhfdgvdrmxs', 20),
+	  ('brussell8', '1457', 2, 'vhikn,ese,nvhiod', 39),
+	  ('brussell8', '1457', 3, 'hdsakofiurjhfxszaa', 19),
+	  ('brussell8', '1459', 1, 'gsdhuk92sqo2ijenhg7iww3ywufhasfgd3w', 93),
+	  ('brussell8', '1498', 1, 'werydhuwijkfegduqjwesdnfbd3qiak	', 90);
+	  
+insert into performance ("campus_id", "subject_code", "hw_marks", "assignment_marks", "mid_marks", "project_marks")
+values('icarver1', 'CSC 3210', 91, 83, 95, 97.5),
+	  ('icarver1', 'CSC 1301', 82, 74, 73, 67),
+	  ('brussell8', 'CSC 1301', 93, 78, 92, 90);
